@@ -6,6 +6,6 @@ describe User, type: :model do
   end
   describe 'relationships' do
     it { should have_many(:books) }
-    it { should have_many(:book_users) }
+    it { should have_many(:reviews) }
   end
 end

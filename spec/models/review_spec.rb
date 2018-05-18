@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe BookUser, type: :model do
+describe Review, type: :model do
   describe 'validations' do
     it { should validate_presence_of(:rating) }
-    it { should validate_presence_of(:review) }
+    it { should validate_presence_of(:description) }
   end
   describe 'relationships' do
     it { should belong_to(:book) }

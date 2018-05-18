@@ -15,25 +15,25 @@ ActiveRecord::Schema.define(version: 20180518162841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "book_users", force: :cascade do |t|
-    t.text "review"
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "description"
     t.integer "rating"
     t.bigint "book_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_book_users_on_book_id"
-    t.index ["user_id"], name: "index_book_users_on_user_id"
-  end
-
-  create_table "books", force: :cascade do |t|
-    t.string "title"
+    t.index ["book_id"], name: "index_reviews_on_book_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
   end
 
-  add_foreign_key "book_users", "books"
-  add_foreign_key "book_users", "users"
+  add_foreign_key "reviews", "books"
+  add_foreign_key "reviews", "users"
 end

@@ -9,19 +9,8 @@ describe 'user sees one book' do
                                     rating: 1,
                                     book_id: book1)
 
-    visit course_path(book1)
+    visit book_path(book1)
 
     expect(page).to have_content(book1.title)
   end
-
-  # it 'shows all students' do
-  #   course1 = Course.create!(title: 'English 101')
-  #   student1 = course1.students.create!(name: 'Alan Turing')
-  #   student2 = course1.students.create!(name: 'Judson Stevens')
-  #
-  #   visit course_path(course1)
-  #
-  #   expect(page).to have_content(student1.name)
-  #   expect(page).to have_content(student2.name)
-  # end
 end
